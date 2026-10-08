@@ -159,6 +159,7 @@ STORAGES = {
 REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES": ["rest_framework.permissions.AllowAny"],
     "DEFAULT_RENDERER_CLASSES": ["rest_framework.renderers.JSONRenderer"],
+    "DEFAULT_THROTTLE_RATES": {"anon": "60/min"},  # used by the search endpoint
 }
 
 # Production hardening
