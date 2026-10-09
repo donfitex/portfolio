@@ -5,10 +5,13 @@ import dj_database_url
 from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-ROOT_DIR = Path(__file__).resolve().parents[2]
 BASE_DIR = Path(__file__).resolve().parents[1]
+ROOT_DIR = Path(__file__).resolve().parents[2]
 
-load_dotenv(ROOT_DIR / ".env")
+for env_path in [BASE_DIR / ".env", ROOT_DIR / ".env"]:
+    if env_path.exists():
+        load_dotenv(env_path)
+        break
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
